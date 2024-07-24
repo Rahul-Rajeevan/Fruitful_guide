@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+      html {
+        scroll-behavior: smooth;
+      }
+      body::-webkit-scrollbar {
+            display: none;
+        }
+      body {
+        height: 300vh;
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Open Sans", sans-serif;
+      }
+      *::selection{
+        background-color: rgb(4, 79, 48);
+        color: white;
+      }
+      @keyframes hero {
+        50% {
+          width: 90%;
+          border-radius: 30px;
+        }
+        100% {
+          width: 85%;
+          border-radius: 30px;
+        }
+      }
+      header#hero {
+        width: 100%;
+        height: 100vh;
+        margin: auto;
+        overflow: hidden;
+        animation: hero ease;
+        animation-timeline: scroll();
+        background-color: rgb(216, 255, 224);
+        position: relative;
+      }
+      video {
+        width: 100%;
+        height: 91%;
+        object-fit: cover;
+      }
+      header#hero nav {
+        position: absolute;
+        top: 5vh;
+        padding-inline: 5vw 7vw;
+        width: 85%;
+        display: flex;
+        justify-content: space-between;
+      }
+      #hero nav > div > button:nth-of-type(1) {
+        border-radius: 0px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        color: black;
+      }
+      #hero nav > div > button:nth-of-type(2) {
+        border-radius: 0px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        color: black;
+      }
+      button{
+        border-radius: 15px;
+        border: none;
+        padding: 15px 25px;
+        font-size: 17px;
+      }
+      #hero button {
+        color: black;
+        background-color: rgba(180, 176, 176, 0.281);
+      }
+      #hero button#start {
+        z-index: 3;
+        background-color: rgb(4, 79, 48);
+        color: white;
+        position: fixed;
+        top: 5%;
+        right: 5%;
+      }
+      #hero > div:nth-of-type(2) {
+        width: 100%;
+        padding: 16px 0px;
+        background-color: rgb(216, 255, 224);
+        text-align: center;
+        color: rgb(3, 70, 3);
+      }
+      #hero > div:nth-of-type(2) > p:first-child {
+        font-weight: 700;
+      }
+      #hero_text {
+        position: absolute;
+        z-index: 2;
+        top: 25%;
+      }
+      #hero_text > h1 {
+        font-size: clamp(32px,4vw,6em);
+        color: white;
+        font-weight: 400;
+        margin-left: 5vw;
+        max-width: 35vw;
+        line-height: 0.8em;
+      }
+      @keyframes textChange {
+        0% {
+          content: "Rahul is a real fruit guide";
+        }
+        25% {
+          content: "Sruthy is a real fruit guide";
+        }
+        50% {
+          content: "Adarsha is a real fruit guide";
+        }
+        75% {
+          content: "Vivek is a real fruit guide";
+        }
+        100% {
+          content: "Mahesh is a real fruit guide";
+        }
+      }
+      #hero_text > h1::after {
+        display: block;
+        font-size: clamp(20px,2vw,30px);
+        content: "Rahul is a real fruit guide";
+        animation: textChange 5s infinite;
+        margin-top: 2em;
+      }
+      #hero_text > button {
+        background-color: white;
+        color: black;
+        margin-left: 5vw;
+        padding: 1rem 3rem;
+        margin-top: 2em;
+      }
+
+      @media (width <= 800px) {
+        header button{
+          display: none;
+        }
+
+      #hero button#start {
+        display: inline-block;
+      }
+      #hero_text > button{
+        display: inline-block;
+      }
+      }
+
+
+      @keyframes headingShow{
+        100%{
+            transform: scale(1);
+        }
+      }
+      .heading_text{
+        transform: scale(0.7);
+        animation: headingShow forwards;
+        animation-timeline: view();
+        animation-range: 10vh 50vh;
+        text-align: center;
+        margin: auto;
+        font-weight: 500;
+        font-size: clamp(20px,5vw,35px);
+        max-width: 70%;
+        margin-top: 2em;
+      }
+
+      section#Fruitful_Guide img{
+        width: 0;
+        animation: imageRotate forwards;
+        animation-timeline: view();
+        height: 85px;
+      }
+      @keyframes imageRotate{
+        100%{
+            width: 110px;
+            transform: rotate(-5deg) translateY(0.5em) rotateY(0deg);
+            margin: -0.5em 0.5em 0 0.5em;
+        }
+      }
+      section#Fruitful_Guide img:first-child{
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        transform: rotateY(90deg);
+        background-color: bisque;
+        animation-range: 45vh 50vh;
+        
+      }
+      section#Fruitful_Guide img:nth-of-type(2){
+        animation-range: 30vh 35vh;
+        transform: translateY(1em);
+      }
+      section#Fruitful_Guide h1:nth-of-type(2){
+        max-width: 45%;
+        margin-top: 3em;
+      }
+      .para_text{
+        text-align: center;
+        width: 25%;
+        min-width: 300px;
+        margin: 3rem auto;
+      }
+      section#choose>.container{
+        display: flex;
+        justify-content: center;
+        gap:2em;
+        margin-top: 2em;
+        height: 60vh;
+      }
+      section#choose>.container>*{
+        width: 40%;     
+        border-radius: 20px;
+      }
+      section#choose>.container>div:nth-of-type(1){
+        height: auto;
+        object-fit: cover;
+        transition: transform 0.5s;
+        transform-origin: left;
+        overflow: hidden;
+      }
+      section#choose>.container>div:nth-of-type(1)>video{
+        width: 100%;
+        height: 100%;
+      }
+      section#choose>.container>img{
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+        transform-origin: right;
+      }
+      section#choose>.container>*:hover{
+        transform: scaleX(1.3);
+      }
+      section#choose>.container:hover>*:nth-child(1):hover~*:not(:hover),.highlight{
+        transform: scaleX(.7);
+      }
+
+      /* Section guides */
+
+      #Guides>.container{
+        max-width: 1400px;
+        margin: auto;
+        gap: 1em;
+      }
+      #Guides button{
+        background-color: transparent;
+        border: 1px solid;
+        font-size: 14px;
+      }
+      #Guides #users{
+        width: 100%;
+        margin-top: 3em;
+        position: relative;
+      }
+      #Guides div.container>div:nth-of-type(1){
+        display: flex;
+        justify-content: center;
+      }
+      #Guides div.container>#users{
+        max-width: 100%;
+      }
+      #Guides div.container>#users>div{
+        position: absolute;
+        background-color: rgb(254, 234, 209);
+        width: 200px;
+        height: 300px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+      }
+      #Guides div.container>#users>div:nth-of-type(1){
+        left: 10%;
+        transform: rotate(3deg);
+      }
+      #Guides div.container>#users>div:nth-of-type(2){
+        left: 21%;
+        transform: rotate(-1deg);
+      }
+      #Guides div.container>#users>div:nth-of-type(3){
+        left: 33%;
+        transform: rotate(3deg);
+      }
+      #Guides div.container>#users>div:nth-of-type(4){
+        left: 45%;
+        transform: rotate(-3deg);
+      }
+      #Guides div.container>#users>div:nth-of-type(5){
+        left: 57%;
+        transform: rotate(3deg);
+      }
+      #Guides div.container>#users>div:nth-of-type(6){
+        left: 69%;
+        transform: rotate(1deg);
+      }
+      #Guides div.container>#users>div:hover{
+        z-index: 2;
+        transition: transform 0.2s ease-in-out;
+        transform: scale(1.2) rotate(-5deg);
+        border-radius: 20px;
+      }
+      #Guides #users img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @keyframes userCard{
+        100%{
+            transform: scale(1);
+        }
+      }
+      #Guides #users{
+        width: 100vw;
+        min-height: 350px;
+        height: auto;
+        transform: scale(.7);
+        animation: userCard forwards;
+        animation-timeline: view();
+        animation-range: 0 50vw;
+      }
+      #Guides #users>div{
+        position: relative;
+        left: 0;
+        top: 0;
+      }
+      #Guides #users>div>img{
+        position: absolute;
+      }
+      #Guides #users>div>img+video{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+      }
+      #Guides #users>div:hover video{
+        display: inline-block;
+        border-radius: 20px;
+      }
+      #Guides button#your_guide{
+        background-color: rgb(4, 79, 48);
+        color: white;
+        display: block;
+        margin: auto;
+      }
+      @media (width <= 900px) {
+        #Guides div.container>#users{
+          display: grid;
+          margin: 2rem;
+          justify-content: center;
+          grid-template-columns: repeat(2,1fr);
+        }
+        #Guides div.container>#users>div{
+          position: relative;
+        }
+        #Guides div.container>#users>div:nth-of-type(1),#Guides div.container>#users>div:nth-of-type(2),#Guides div.container>#users>div:nth-of-type(3),
+        #Guides div.container>#users>div:nth-of-type(4),#Guides div.container>#users>div:nth-of-type(5),#Guides div.container>#users>div:nth-of-type(6){ 
+          left: 0;
+        }
+        #Guides #users>div>img{
+          position: absolute;
+        }
+      }
+      @media (width <= 500px){
+        #Guides div.container>#users{
+          grid-template-columns: repeat(1,1fr);
+          margin: 2rem 0;
+        }
+        #Guides div.container>#users>div{
+          margin: auto;
+        }
+      }
+      main{
+        margin-top: 10vh;
+        border-top-left-radius: 3em;
+        border-top-right-radius: 3em;
+        background-image: linear-gradient(#9dd1e9,#9dd1e9,#ffffff,white);
+        padding-top: 40vh;
+        min-height: 400vh;
+        height: auto;
+      }
+      main .container{
+        position: relative;
+        height: 150vh;
+      }
+      @media (width <= 1000px){
+        main{
+          padding-top: 0;
+        }
+        main>div.container{
+          padding-top: 10vh;
+          height: 100vh;
+        }
+      }
+      main>.container>img:nth-of-type(1){
+        bottom: 0;
+        position: absolute;
+        width: 40%;
+      }
+      main>.container>img:nth-of-type(2){
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 2;
+        max-height: 60%;
+        object-fit: cover;
+        object-position: top;
+      }
+      main>.container>img:nth-of-type(3){
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 40%;
+        max-height: 100%;
+      }
+      main>div.container>div{
+        background-color: rgb(245, 240, 214);
+        width: 100%;
+        height: 10%;
+        max-height: 30vh;
+        position: absolute;
+        top: 98%;        
+      }
+      @keyframes fontSize{
+        50%{
+            color: white;
+        }
+        70%{
+            color: rgb(255, 255, 255);
+            transform: translateY(0vh);
+        }
+        80%{
+            color: black;
+        }
+        100%{
+            font-size: 4vw;
+            color: black;
+            transform: translateY(55vh);
+        }
+      }
+      #membership{
+        position: sticky;
+        top: 30vh;
+        z-index: 3;
+        text-align: center;
+        color: white;
+        font-size: 8vw;
+        line-height: 1em;
+        margin: auto;
+        font-weight: 500;
+        animation: fontSize forwards;
+        animation-timeline: view();
+        font-family: "Raleway", sans-serif;
+      }
+      main>div.container+div{
+        margin-top: 60vh;
+        text-align: center;
+        position: relative;
+      }
+      main>div.container+div>p{
+        width: 25%;
+        margin: auto;
+        font-weight: 600;
+      }
+
+      @keyframes stickyFooter{
+        100%{
+            left: 40%;
+            position: fixed;
+            top: 90vh;
+        }
+      }
+      #footer_bar{
+        display: flex;
+        justify-content: center;
+        background-color: yellow;
+      }
+      #footer_bar>div{
+        background-color: rgba(136, 128, 128, 0.301);
+        display: inline-block;
+        border-radius: 25px;
+        animation: stickyFooter forwards;
+        animation-timeline: view();
+        animation-range: 10vh 30vh;
+      }
+      #footer_bar button{
+        color: black;
+        background-color: transparent;
+        border: none;
+        font-weight: 500;
+      }
+      main #tell_me{
+        background-color: rgb(4, 79, 48);
+        color: white;
+      }
+      @keyframes guidanceCards{
+        40%{
+            filter: blur(0px);
+        }
+        90%{
+            filter: blur(2px);
+            transform: scale(.8);
+        }
+        100%{
+            transform: scale(1);
+            filter: blur(0px);
+        }
+      }
+      @keyframes guidanceDiv{
+        0%{
+            position: sticky;
+            top: 10vh;
+        }
+        100%{
+            position: static;
+        }
+      }
+      #guidance{
+        background-color: white;
+        width: 90%;
+        margin: auto;
+        padding: 5em 8em;
+        font-weight: 600;
+        border-radius: 2em;
+        margin-top: 10vh;
+        display: flex;
+        justify-content: space-between;
+      }
+      #guidance:first-child{
+        position: sticky;
+        top: 10vh;        
+        animation: guidanceCards forwards;
+        animation-timeline: view();
+      }
+      #guidance:nth-of-type(2){
+        position: sticky;
+        top: 10vh;        
+        animation: guidanceCards forwards;
+        animation-timeline: view();
+      }
+      #guidance:nth-of-type(3){
+        position: sticky;
+        top: 10vh;        
+        z-index: 2;
+      }
+      #guidanceDiv{
+        animation: guidanceDiv;
+        animation-timeline: view();
+    }
+      #guidance>div{
+        width: 40%;
+      }
+      #guidance>div:nth-of-type(2){
+        width: 50%;
+      }
+      #guidance h2{
+        font-size: 26px;
+        line-height: 2em;
+        font-weight: 500;
+      }
+      #guidance ul{
+        line-height: 2em;
+      }
+      #guidance button{
+        margin-top: 2em;
+      }
+      #guidance>div:nth-of-type(2)>img{
+        height: 90%;
+        object-fit: cover;
+        background-color: bisque;
+        border-radius: 2em;
+        position: absolute;
+        left: 30%;
+      }
+      #guidance>div:nth-of-type(2){
+        position: relative;
+      }
+      #guidance>div:nth-of-type(2)>div{
+        position: absolute;
+        width: 45%;
+        color: white;
+        font-weight: 400;
+        padding: 1em;
+        border-radius: 1em;
+        font-size: 13px;
+      }
+      #guidance>div:nth-of-type(2)>div:nth-of-type(1){
+        position: absolute;
+        background-color: rgb(50, 128, 254);
+        top: 5%;
+        left: 5%;
+      }
+      #guidance>div:nth-of-type(2)>div:nth-of-type(2){
+        position: absolute;
+        background-color: rgb(160, 157, 157);
+        top: 30%;
+        left: 0;
+      }
+      #guidance>div:nth-of-type(2)>div:nth-of-type(3){
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.571);
+        top: 75%;
+        left: 65%;
+        width: 50%;
+      }
+      @keyframes Fruitful_Membership{
+        0%{
+            font-size: 5.5em;
+        }
+        70%{
+            position: sticky;
+        }
+        80%{
+            position: static;
+        }
+        100%{
+            font-size: 2.5em;  
+        }
+      }
+      #Fruitful_Membership{
+        position: sticky;
+        top: 50vh;
+        margin-top: 5vh;
+        text-align: center;
+        font-weight: 500;
+        animation: Fruitful_Membership forwards;
+        animation-timeline: view();
+      }
+      main .para_text+div{
+        margin-top: 5vh;
+        display: flex;
+        justify-content: center;
+      }
+      main .para_text+div button:nth-of-type(1){
+        background-color: black;
+        color: white;
+      }
+      main .para_text+div button:nth-of-type(2){
+        background-color: transparent;
+        border: 1px solid;
+        color: rgb(0, 0, 0);
+      }
+      #Membership{
+        height: 45vh;
+      }
+      #cards3>div:nth-of-type(1){
+        display: flex;
+        margin: auto;
+        margin-top: 1.5rem;
+      }
+      .cards_animate{
+        display: flex;
+        width: 80%;
+        margin: auto;
+        margin-top: 3rem;
+        gap: 2rem;
+        position: relative;
+        min-height: 300px;
+      }
+      
+      .cards_animate>div{
+        height: 300px;
+        width: 330px;
+        overflow: hidden;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 2rem;
+        border: 1px solid rgba(128, 128, 128, 0.146);
+        position: absolute;
+        left: 40%;
+        
+      }
+      @keyframes cardBurst1{
+        50%{
+            transform: translate(-400px,10px) rotate(-5deg);
+        }
+        70%{
+            transform: translate(-330px,10px) rotate(-5deg);
+        }
+        100%{
+            transform: translate(-360px,10px) rotate(-5deg);
+        }
+      }
+      @keyframes cardBurst2{
+        50%{
+            transform: translate(400px,10px) rotate(5deg);
+        }
+        70%{
+            transform: translate(330px,10px) rotate(5deg);
+        }
+        100%{
+            transform: translate(360px,10px) rotate(5deg);
+        }
+      }
+      .animate{
+        animation: cardBurst1 1s forwards;
+        transform-origin: bottom;
+      }
+      .animate2{
+        animation: cardBurst2 1s forwards;
+        transform-origin: bottom;
+      }
+      #cards3>div img{
+        height: 60%;
+        position: absolute;
+      }
+      .cards_animate>div:nth-of-type(1),.cards_animate>div:nth-of-type(3){
+        background-color: white;
+      }
+      .cards_animate>div:nth-of-type(1)>img:nth-of-type(1){
+        top: 50%;
+      }
+      .cards_animate>div:nth-of-type(1)>img:nth-of-type(2){
+        top: -20%;
+        right: 0;
+      }
+      .cards_animate>div:nth-of-type(2){
+        background-color: rgb(254, 234, 209);
+      }
+      .cards_animate>div:nth-of-type(2)>img:nth-of-type(1){
+        top: -10%;
+        height: 90%;
+        width: 40%;
+      }
+      .cards_animate>div:nth-of-type(3)>img:nth-of-type(1){
+        top: -40%;
+        height: 100% !important;
+      }
+      .cards_animate>div:nth-of-type(3)>img:nth-of-type(2){
+        height: 15% !important;
+        right: 10%;
+        top: 10%;
+      }
+      #multiple_cards{
+        height: 100vh;
+        margin-top: 40vh;
+        position: relative;
+      }
+      #multiple_cards h1{
+        font-size: 50px;
+        font-weight: 600;
+        width: 60%;
+        text-align: center;
+      }
+      #multiple_cards p{
+        width: 70%;
+        text-align: center;
+        font-weight: 500;
+      }
+      #multiple_cards>div:nth-of-type(1){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: white;
+        z-index: 2;
+        border-radius: 50%;
+      }
+      #multiple_cards>.first_card~div{
+        width: 200px;
+        height: 200px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        position: absolute;
+        border-radius: 5px;
+        
+      }
+      .manyss{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+      @keyframes manyBurst1{
+        100%{
+        top: 70% ;
+        left: 65%;
+        transform: rotate(5deg);
+        }
+      }
+      #many1{
+        animation: manyBurst1 1s forwards;
+      }
+      @keyframes manyBurst2{
+        100%{
+        top: 5%;
+        left: 70%;
+        transform: rotate(5deg);
+        }
+      }
+      #many2{
+        animation: manyBurst2 1s forwards;
+      }
+      @keyframes manyBurst3{
+        100%{
+            top: 7%;
+        left: 20%;
+        transform: rotate(10deg);
+        }
+      }
+      #many3{
+        animation: manyBurst3 1s forwards;
+        
+      }
+      @keyframes manyBurst4{
+        100%{
+            top: 40%;
+        left: 80%;
+        transform: rotate(-10deg);
+        }
+      }
+      #many4{
+        animation: manyBurst4 1s forwards;
+      }
+      @keyframes manyBurst5{
+        100%{
+            top: 0%;
+        left: 45%;
+        transform: rotate(10deg);
+        }
+      }
+      #many5{
+        animation: manyBurst5 1s forwards;
+      }
+      @keyframes manyBurst6{
+        100%{
+            top: 30%;
+        left: 5%;
+        transform: rotate(-15deg);
+        }
+      }
+      #many6{
+        animation: manyBurst6 1s forwards;
+      }
+      @keyframes manyBurst7{
+        100%{
+            top: 60%;
+        left: 15%;
+        transform: rotate(-15deg);
+        }
+      }
+      #many7{
+        animation: manyBurst7 1s forwards;
+      }
+      @keyframes manyBurst8{
+        100%{
+            top: 80%;
+        left: 40%;
+        transform: rotate(15deg);
+        }
+      }
+      #many8{
+        animation: manyBurst8 1s forwards;
+      }
+
+      #multiple_cards>.first_card~div img{
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="hero">
+      <div class="container">
+        <nav>
+          <svg
+            style="color: rgb(0, 0, 0)"
+            xmlns="http://www.w3.org/2000/svg"
+            width="100px"
+            viewBox="0 0 163 33"
+            fill="none"
+            class="logo-path__wrap"
+          >
+            <path
+              d="M54.8056 31.4143H59.457V14.5929H63.1685V10.5484H59.457V9.32616C59.457 5.53089 60.6781 4.30065 63.9478 4.30065H65.3376V0.135498H63.7469C58.2359 0.135498 54.8136 3.44028 54.8136 9.89706V10.5484H51.793V14.5929H54.8136V31.4143H54.8056Z"
+              fill="currentColor"
+              class="logo-path"
+            ></path>
+            <path
+              d="M65.0483 31.4143H69.6998V19.6506C69.6998 16.3056 70.9209 14.8743 74.1504 14.8743H75.2911V10.5483H73.6202C68.1493 10.5483 65.0483 13.9818 65.0483 19.0797V31.4143Z"
+              fill="currentColor"
+              class="logo-path"
+            ></path>
+            <path
+              d="M86.466 31.8646C92.0975 31.8646 95.078 28.9216 95.078 23.1644V10.5483H90.4265V23.4137C90.4265 26.437 89.2054 27.8683 86.466 27.8683C83.7265 27.8683 82.5054 26.437 82.5054 23.4137V10.5483H77.854V23.1644C77.854 28.9216 80.8345 31.8646 86.466 31.8646Z"
+              fill="currentColor"
+              class="logo-path"
+            ></path>
+            <path
+              d="M103.36 10.5483H98.709V31.4143H103.36V10.5483Z"
+              fill="currentColor"
+              class="logo-path"
+            ></path>
+            <path
+              d="M101.039 7.52501C102.548 7.52501 103.77 6.30101 103.77 4.79113C103.77 3.28125 102.548 2.05725 101.039 2.05725C99.5305 2.05725 98.3076 3.28125 98.3076 4.79113C98.3076 6.30101 99.5305 7.52501 101.039 7.52501Z"
+              fill="currentColor"
+              class="logo-path"
+            ></path>
+            <path
+              d="M116.945 31.4143H118.005V27.2491H117.764C114.583 27.2491 113.483 25.8581 113.483 22.4327V14.5929H116.664V10.5483H113.483V4.09961H108.831V10.5483H105.811V14.5929H108.831V22.883C108.831 28.5196 111.932 31.4143 116.953 31.4143H116.945Z"
+              fill="currentColor"
+              class="logo-path"
+            ></path>
+            <path
+              d="M122.006 31.4143H126.658V14.5929H130.369V10.5484H126.658V9.32616C126.658 5.53089 127.879 4.30065 131.148 4.30065H132.538V0.135498H130.948C125.437 0.135498 122.014 3.44028 122.014 9.89706V10.5484H118.994V14.5929H122.014V31.4143H122.006Z"
+              fill="currentColor"
+              class="logo-path"
+            ></path>
+            <path
+              d="M141.432 31.8646C147.063 31.8646 150.044 28.9216 150.044 23.1644V10.5483H145.392V23.4137C145.392 26.437 144.171 27.8683 141.432 27.8683C138.692 27.8683 137.471 26.437 137.471 23.4137V10.5483H132.82V23.1644C132.82 28.9216 135.8 31.8646 141.432 31.8646Z"
+              fill="currentColor"
+              class="logo-path"
+            ></path>
+            <path
+              d="M161.58 31.4142H162.64V27.2491H162.399C159.258 27.2491 158.117 26.0269 158.117 22.7543V2.20996H153.466V22.7543C153.466 28.5115 156.567 31.4142 161.588 31.4142H161.58Z"
+              fill="currentColor"
+              class="logo-path"
+            ></path>
+            <path
+              d="M18.3873 32.1088C8.63191 30.8085 1.09222 22.4957 1.00488 12.4008C10.7635 13.701 18.3032 22.017 18.3873 32.1088Z"
+              fill="currentColor"
+            ></path>
+            <path
+              d="M21.0654 32.1088C30.8208 30.8085 38.3637 22.4957 38.4478 12.4008C28.6892 13.701 21.1495 22.017 21.0654 32.1088Z"
+              fill="currentColor"
+            ></path>
+            <path
+              d="M19.7295 13.7237C16.0486 13.7237 13.0566 10.7286 13.0566 7.05089C13.0566 3.37323 16.0486 0.378052 19.7295 0.378052C23.4104 0.378052 26.4023 3.37323 26.4023 7.05089C26.4023 10.7286 23.4071 13.7237 19.7295 13.7237ZM19.7295 3.0239C17.5106 3.0239 15.7025 4.82877 15.7025 7.05089C15.7025 9.27302 17.5074 11.0779 19.7295 11.0779C21.9516 11.0779 23.7565 9.27302 23.7565 7.05089C23.7565 4.82877 21.9516 3.0239 19.7295 3.0239Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+          <div><button>Member Benefits</button><button>Pricing</button></div>
+          <button>Login</button>
+          <button id="start">Get Started</button>
+        </nav>
+      </div>
+      <video autoplay loop muted>
+        <source src="./hero.mp4" type="video/mp4" />
+      </video>
+      <div>
+        <p>Membership is risk-free for 30 days</p>
+        <p>
+          Try Fruitful for a month! Not your thing? Get a full refund. No fuss.
+        </p>
+      </div>
+      <div id="hero_text">
+        <h1>Finances figured out for you</h1>
+        <button>Get Started</button>
+      </div>
+    </header>
+     <section id="choose">
+        <div class="container">
+            <div>
+                <video autoplay loop muted>
+                    <source src="./choose_guide1.mp4" type="video/mp4" />
+                  </video>
+            </div>
+            <img src="./choose_guide2.webp" alt="">
+        </div>
+    </section>
+  <section id="Guides">
+        <div class="container">
+            <h1 class="heading_text">Guides that help you grow</h1>
+            <p class="para_text">Talk to someone who understands you and your money. Make progress and feel empowered.</p>
+            <div><button>How it works</button>
+            <button>Who are the guides</button></div>
+            <div id="users">
+                <div>
+                    <img src="https://cdn.prod.website-files.com/65b22d2d8aafb9c10048b930/66018fb1ba04c4ced64004a6_20240325_Fruitful_Guide_Headshot_Andrea-p-500.png" alt="">
+                    <video autoplay loop muted>
+                        <source src="https://d1pwidzl9kib4u.cloudfront.net/marketing/20240416/4x3_Low_Quality_No_Caption/20240316_Fruitful_Video_Guide_Andrea_4x3_LQ_NC.mp4" type="video/mp4" />
+                      </video>
+                </div>
+                <div><img src="https://cdn.prod.website-files.com/65b22d2d8aafb9c10048b930/65cf43738d5103f7a55ba9d1_guide_headshot_andrew_FEE9D1-p-500.png" alt="">
+                    <video autoplay loop muted>
+                        <source src="https://d1pwidzl9kib4u.cloudfront.net/marketing/20240416/4x3_Low_Quality_No_Caption/20240316_Fruitful_Video_Guide_Andrew_4x3_LQ_NC.mp4" type="video/mp4" />
+                      </video>
+                </div>
+                <div><img src="https://cdn.prod.website-files.com/65b22d2d8aafb9c10048b930/66018c0620ee3d30a2c417c7_20240325_Fruitful_Guide_Headshot_Bri-p-500.png" alt="">
+                    <video autoplay loop muted>
+                        <source src="https://d1pwidzl9kib4u.cloudfront.net/marketing/20240416/4x3_Low_Quality_No_Caption/20240316_Fruitful_Video_Guide_Bri_4x3_LQ_NC.mp4" type="video/mp4" />
+                      </video>
+                </div>
+                <div><img src="https://cdn.prod.website-files.com/65b22d2d8aafb9c10048b930/660196bb99f851d6a36f5df4_20240325_Fruitful_Guide_Headshot_Matt-p-500.png" alt="">
+                    <video autoplay loop muted>
+                        <source src="https://d1pwidzl9kib4u.cloudfront.net/marketing/20240416/4x3_Low_Quality_No_Caption/20240316_Fruitful_Video_Guide_Matt_4x3_LQ_NC.mp4" type="video/mp4" />
+                      </video>
+                </div>
+                <div><img src="https://cdn.prod.website-files.com/65b22d2d8aafb9c10048b930/661f0f3359c8b887ad549738_20240305_FF_guide_headshot_mckenna_FEE9D1-p-500.png" alt="">
+                    <video autoplay loop muted>
+                        <source src="https://d1pwidzl9kib4u.cloudfront.net/marketing/20240416/4x3_Low_Quality_No_Caption/20240316_Fruitful_Video_Guide_Mckenna_4x3_LQ_NC.mp4" type="video/mp4" />
+                      </video>
+                </div>
+                <div><img src="https://cdn.prod.website-files.com/65b22d2d8aafb9c10048b930/65e74efba487812a0c399d5f_Raquel%20headshot-p-500.png" alt="">
+                    <video autoplay loop muted>
+                        <source src="https://d1pwidzl9kib4u.cloudfront.net/marketing/20240416/4x3_Low_Quality_No_Caption/20240316_Fruitful_Video_Guide_Raquel_4x3_LQ_NC.mp4" type="video/mp4" />
+                      </video>
+                </div>
+            </div>
+            <button id="your_guide">Choose your guide</button>
+        </div>
+    </section>
+      <main>
+        <div class="container">
+            <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65a2bd5d09ef455e3f936715_Background-trees-left-p-800.png" alt="">
+            <img id="people" src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65a2bd5ec0d90b97194cbe1e_people-p-2000.webp" alt="">
+            <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65a2bd5d05690f47e189bcde_Background-trees-right-p-500.png" alt="">
+            <div></div>
+            <h1 id="membership">Membership Benefits</h1>
+        </div>
+        <div>
+            <p>Get expert advice and access to smarter, simpler ways to save and invest all in one place.</p>
+            <div  id="footer_bar">
+              <div>
+                <button>Guidance</button>
+                <button>Save</button>
+                <button>Invest</button>
+              </div>
+                
+            </div>
+        </div>
+     <!--    <div id="guidanceDiv">
+            <div id="guidance">
+                <div>
+                    <p>Guidance</p>
+                    <h2>Talk to a human. An expert. A Fruitful Guide.</h2>
+                    <ul>
+                        <li>Dedicated advice and support on all aspects of your finances from a Fruitful Guide.</li>
+                        <li>1-to-1 video sessions focused on organizing your finances, building wealth, and making real progress.</li>
+                        <li>Ongoing progress check-ins, quick syncs and anytime messaging.</li>
+                        <li>A clear blueprint to hit your goals with simple steps that your Guide helps you implement.</li>
+                    </ul>
+                    <button id="tell_me">Tell me more</button>
+                </div>
+                <div>
+                    <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65cf93712db11ffcec514942_Durriya%20headshot-p-500.webp" alt="girl">
+                    <div>
+                        <p>Hi Durriya - I have questions about
+                            saving more each month to possibly
+                            buy a home in 3-4 years.</p>
+                    </div>
+                    <div>
+                        <p>Lets talk! Ill look at your financial
+                            profile and book a quick sync to chat
+                            strategy.</p>
+                        </div>
+                    <div>
+                        <p>30 minutes until your session on
+                            Buying a home with Durriya</p>
+                    </div>
+                </div>
+            </div>
+            <div id="guidance">
+                <div>
+                    <p>Guidance</p>
+                    <h2>Talk to a human. An expert. A Fruitful Guide.</h2>
+                    <ul>
+                        <li>Dedicated advice and support on all aspects of your finances from a Fruitful Guide.</li>
+                        <li>1-to-1 video sessions focused on organizing your finances, building wealth, and making real progress.</li>
+                        <li>Ongoing progress check-ins, quick syncs and anytime messaging.</li>
+                        <li>A clear blueprint to hit your goals with simple steps that your Guide helps you implement.</li>
+                    </ul>
+                    <button id="tell_me">Tell me more</button>
+                </div>
+                <div>
+                    <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65cf93712db11ffcec514942_Durriya%20headshot-p-500.webp" alt="girl">
+                    <div>
+                        <p>Hi Durriya - I have questions about
+                            saving more each month to possibly
+                            buy a home in 3-4 years.</p>
+                    </div>
+                    <div>
+                        <p>Lets talk! Ill look at your financial
+                            profile and book a quick sync to chat
+                            strategy.</p>
+                        </div>
+                    <div>
+                        <p>30 minutes until your session on
+                            Buying a home with Durriya</p>
+                    </div>
+                </div>
+            </div>
+            <div id="guidance">
+                <div>
+                    <p>Guidance</p>
+                    <h2>Talk to a human. An expert. A Fruitful Guide.</h2>
+                    <ul>
+                        <li>Dedicated advice and support on all aspects of your finances from a Fruitful Guide.</li>
+                        <li>1-to-1 video sessions focused on organizing your finances, building wealth, and making real progress.</li>
+                        <li>Ongoing progress check-ins, quick syncs and anytime messaging.</li>
+                        <li>A clear blueprint to hit your goals with simple steps that your Guide helps you implement.</li>
+                    </ul>
+                    <button id="tell_me">Tell me more</button>
+                </div>
+                <div>
+                    <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65cf93712db11ffcec514942_Durriya%20headshot-p-500.webp" alt="girl">
+                    <div>
+                        <p>Hi Durriya - I have questions about
+                            saving more each month to possibly
+                            buy a home in 3-4 years.</p>
+                    </div>
+                    <div>
+                        <p>Lets talk! Ill look at your financial
+                            profile and book a quick sync to chat
+                            strategy.</p>
+                        </div>
+                    <div>
+                        <p>30 minutes until your session on
+                            Buying a home with Durriya</p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div id="Membership">
+            <h1 id="Fruitful_Membership">Fruitful Membership</h1>
+        </div>
+        
+        <div id="cards3">
+            <p class="para_text">Membership is risk-free for 30 days</p>
+            <div><button>How it works</button>
+            <button>Who are the guides</button></div>
+            <div class="cards_animate">
+                <div>
+                    <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/66583654a49c400d4d10dd58_Fern%202.webp" alt="">
+                    <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/6658a692db67728c0cedfa20_Leaves%202.webp" alt="">
+                </div>
+                <div>
+                    <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/6658365416b1a17d4b551283_Orange_Tree%202.webp" alt="">
+                </div>
+                <div>
+                    <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/6658a692358226500778502e_Haning%20Tree%201.webp" alt="">
+                    <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65a2bf8357bde59b25ddb36a_left_butterfly.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="multiple_cards">
+            <div class="first_card">
+                <h1>Your goals
+                are ours too</h1>
+            <p>We’ll guide and support you though all money moments and milestones.</p>
+            <button style="background-color: rgb(4, 79, 48); color: white;">Learn more</button>
+            </div>
+            
+            <div class="manyss">
+                <img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8bd6c52374cbfb0255664_Welcome.png" alt="">
+            </div>
+            <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8bd687d50f32e746c1ed1_Discovery.png" alt=""></div>
+            <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8bd687a38cbab5c394e6f_Check%20in.png" alt=""></div>
+            <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8bd6904aa0cf12c948275_Investing.png" alt=""></div>
+            <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8bd6904aa0cf12c948275_Investing.png" alt=""></div>
+            <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8bd69ee9c39c64348745b_Guide.png" alt=""></div>
+            <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8bd69dfc61feb1f03df05_Money%20Managment.png" alt=""></div>
+            <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8be000bcb6657bfefe727_02.png" alt=""></div>
+        </div> -->
+    </main>
+  <!--  <script> 
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.querySelector('section#choose > .container');
+      const firstChild = container.children[0];
+      const secondChild = container.children[1];
+
+      secondChild.addEventListener('mouseenter', function() {
+        firstChild.classList.add('highlight');
+      });
+
+      secondChild.addEventListener('mouseleave', function() {
+        firstChild.classList.remove('highlight');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const img1 = document.querySelector('#multiple_cards>div:nth-of-type(2)');
+    const img2 = document.querySelector('#multiple_cards>div:nth-of-type(3)');
+    const img3 = document.querySelector('#multiple_cards>div:nth-of-type(4)');
+    const img4 = document.querySelector('#multiple_cards>div:nth-of-type(5)');
+    const img5 = document.querySelector('#multiple_cards>div:nth-of-type(6)');
+    const img6 = document.querySelector('#multiple_cards>div:nth-of-type(7)');
+    const img7 = document.querySelector('#multiple_cards>div:nth-of-type(8)');
+    const img8 = document.querySelector('#multiple_cards>div:nth-of-type(9)');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                img1.setAttribute("id",'many1');
+                img2.setAttribute("id",'many2');
+                img3.setAttribute("id",'many3');
+                img4.setAttribute("id",'many4');
+                img5.setAttribute("id",'many5');
+                img6.setAttribute("id",'many6');
+                img7.setAttribute("id",'many7');
+                img8.setAttribute("id",'many8');
+            } else {
+                img1.removeAttribute("id");
+                img2.removeAttribute("id");
+                img3.removeAttribute("id");
+                img4.removeAttribute("id");
+                img5.removeAttribute("id");
+                img6.removeAttribute("id");
+                img7.removeAttribute("id");
+                img8.removeAttribute("id");
+            }
+        });
+    });
+
+    observer.observe(img1,img2,img3,img4,img5,img6,img7,img8);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const videoContainer1 = document.querySelector('.cards_animate>div:nth-of-type(1)');
+    const videoContainer2 = document.querySelector('.cards_animate>div:nth-of-type(3)');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                videoContainer1.classList.add('animate');
+                videoContainer2.classList.add('animate2');
+            } else {
+                videoContainer1.classList.remove('animate');
+                videoContainer2.classList.remove('animate2');
+            }
+        });
+    });
+
+    observer.observe(videoContainer1,videoContainer2);
+});
+  </script> --->
+  </body>
+</html>
