@@ -28,11 +28,11 @@
       }
       @keyframes hero {
         50% {
-          width: 90%;
+          width: 70%;
           border-radius: 30px;
         }
         100% {
-          width: 85%;
+          width: 75%;
           border-radius: 30px;
         }
       }
@@ -467,19 +467,19 @@
         width: 25%;
         margin: auto;
         font-weight: 600;
+        font-size: clamp(10px,3vw,16px);
       }
 
       @keyframes stickyFooter{
         100%{
-            left: 40%;
             position: fixed;
             top: 90vh;
         }
       }
       #footer_bar{
-        display: flex;
+        display: none;
+        /* display: flex; */
         justify-content: center;
-        background-color: yellow;
       }
       #footer_bar>div{
         background-color: rgba(136, 128, 128, 0.301);
@@ -553,6 +553,9 @@
         animation: guidanceDiv;
         animation-timeline: view();
     }
+    #guidance{
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
       #guidance>div{
         width: 40%;
       }
@@ -571,12 +574,13 @@
         margin-top: 2em;
       }
       #guidance>div:nth-of-type(2)>img{
-        height: 90%;
+        height: 100%;
+        width: 100%;
         object-fit: cover;
+        object-position: top;
         background-color: bisque;
         border-radius: 2em;
         position: absolute;
-        left: 30%;
       }
       #guidance>div:nth-of-type(2){
         position: relative;
@@ -594,13 +598,13 @@
         position: absolute;
         background-color: rgb(50, 128, 254);
         top: 5%;
-        left: 5%;
+        left: -15%;
       }
       #guidance>div:nth-of-type(2)>div:nth-of-type(2){
         position: absolute;
         background-color: rgb(160, 157, 157);
         top: 30%;
-        left: 0;
+        left: -10%;
       }
       #guidance>div:nth-of-type(2)>div:nth-of-type(3){
         position: absolute;
@@ -609,6 +613,24 @@
         left: 65%;
         width: 50%;
       }
+      @media (width <= 1000px){
+        #guidance{
+        padding: 2rem;
+        height: auto;
+      }}
+      @media (width <= 750px){
+        #guidance{
+        padding: 2rem;
+        flex-direction: column;
+      }
+      #guidance>div{
+        width: 100%;
+        position: static;
+      }
+      #guidance>div:nth-of-type(2){
+        display: none;
+      }
+    }
       @keyframes Fruitful_Membership{
         0%{
             font-size: 5.5em;
@@ -649,6 +671,12 @@
       #Membership{
         height: 45vh;
       }
+      #cards3{
+        max-width: 1400px;
+        margin: auto;
+        /* border: 2px solid; */
+        
+      }
       #cards3>div:nth-of-type(1){
         display: flex;
         margin: auto;
@@ -663,38 +691,45 @@
         position: relative;
         min-height: 300px;
       }
-      
+      @media (width <= 1000px){
+        .cards_animate{
+          flex-direction: column;
+        }
+        }
       .cards_animate>div{
-        height: 300px;
-        width: 330px;
+        min-width: 100px;
+        min-height: 100px;
+        width: 30vw;
+        height: 30vw;
+        max-height: 300px;
+        max-width: 330px;
         overflow: hidden;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         border-radius: 2rem;
         border: 1px solid rgba(128, 128, 128, 0.146);
         position: absolute;
-        left: 40%;
-        
+        left: 40%;       
       }
       @keyframes cardBurst1{
         50%{
-            transform: translate(-400px,10px) rotate(-5deg);
+            transform: translate(-200%,10px) rotate(-5deg);
         }
         70%{
-            transform: translate(-330px,10px) rotate(-5deg);
+            transform: translate(-100%,10px) rotate(-5deg);
         }
         100%{
-            transform: translate(-360px,10px) rotate(-5deg);
+            transform: translate(-150%,10px) rotate(-5deg);
         }
       }
       @keyframes cardBurst2{
         50%{
-            transform: translate(400px,10px) rotate(5deg);
+            transform: translate(200%,10px) rotate(5deg);
         }
         70%{
-            transform: translate(330px,10px) rotate(5deg);
+            transform: translate(100%,10px) rotate(5deg);
         }
         100%{
-            transform: translate(360px,10px) rotate(5deg);
+            transform: translate(150%,10px) rotate(5deg);
         }
       }
       .animate{
@@ -740,6 +775,8 @@
         height: 100vh;
         margin-top: 40vh;
         position: relative;
+        z-index: 5;
+        background-color: white;
       }
       #multiple_cards h1{
         font-size: 50px;
@@ -1026,7 +1063,7 @@
                 
             </div>
         </div>
-     <!--    <div id="guidanceDiv">
+   <div id="guidanceDiv">
             <div id="guidance">
                 <div>
                     <p>Guidance</p>
@@ -1158,9 +1195,9 @@
             <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8bd69ee9c39c64348745b_Guide.png" alt=""></div>
             <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8bd69dfc61feb1f03df05_Money%20Managment.png" alt=""></div>
             <div class="manyss"><img src="https://cdn.prod.website-files.com/659f15a242e58eb40c8cf14b/65d8be000bcb6657bfefe727_02.png" alt=""></div>
-        </div> -->
+        </div> 
     </main>
-  <!--  <script> 
+  <script> 
     document.addEventListener('DOMContentLoaded', function() {
       const container = document.querySelector('section#choose > .container');
       const firstChild = container.children[0];
@@ -1229,6 +1266,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observer.observe(videoContainer1,videoContainer2);
 });
-  </script> --->
+  </script> 
   </body>
 </html>
